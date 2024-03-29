@@ -1,0 +1,3 @@
+max_batches = (classes*2000) = 6*2000 = 12000
+steps = 11500,12500
+filters = (num/3)*(classes+5) = (9/3)*(6+5) = 33

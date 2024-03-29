@@ -1,0 +1,427 @@
+(dvenv) zainulmustafa@iamzainum-macbook-air-m1 Pavement-Defect-Detection % darknet/darknet detector calc_anchors custom_data/labelled_data.data -num_of_clusters 9 -width 416 -height 416
+
+ GPU isn't used 
+ OpenCV version: 4.7.0
+
+ num_of_clusters = 9, width = 416, height = 416 
+ read labels from 6852 images 
+ loaded          image: 6852     box: 53817
+ all loaded. 
+
+ calculating k-means++ ...
+
+ iterations = 50 
+
+
+counters_per_class = 3650, 7434, 10406, 792, 12180, 5044, 14311
+
+ avg IoU = 67.90 % 
+
+Saving anchors to the file: anchors.txt 
+anchors =  24, 44,  64, 26,  35, 81, 127, 34,  81, 80,  46,147, 235, 63, 112,170, 322,336
+(dvenv) zainulmustafa@iamzainum-macbook-air-m1 Pavement-Defect-Detection % darknet/darknet detector train custom_data/labelled_data.data darknet/cfg/yolov3-custom.cfg custom_weight/darknet53.conv.74 -map
+ GPU isn't used 
+ OpenCV version: 4.7.0
+ Prepare additional network for mAP calculation...
+mini_batch = 1, batch = 16, time_steps = 1, train = 0 
+   layer   filters  size/strd(dil)      input                output
+   0 conv     32       3 x 3/ 1    416 x 416 x   3 ->  416 x 416 x  32 0.299 BF
+   1 conv     64       3 x 3/ 2    416 x 416 x  32 ->  208 x 208 x  64 1.595 BF
+   2 conv     32       1 x 1/ 1    208 x 208 x  64 ->  208 x 208 x  32 0.177 BF
+   3 conv     64       3 x 3/ 1    208 x 208 x  32 ->  208 x 208 x  64 1.595 BF
+   4 Shortcut Layer: 1,  wt = 0, wn = 0, outputs: 208 x 208 x  64 0.003 BF
+   5 conv    128       3 x 3/ 2    208 x 208 x  64 ->  104 x 104 x 128 1.595 BF
+   6 conv     64       1 x 1/ 1    104 x 104 x 128 ->  104 x 104 x  64 0.177 BF
+   7 conv    128       3 x 3/ 1    104 x 104 x  64 ->  104 x 104 x 128 1.595 BF
+   8 Shortcut Layer: 5,  wt = 0, wn = 0, outputs: 104 x 104 x 128 0.001 BF
+   9 conv     64       1 x 1/ 1    104 x 104 x 128 ->  104 x 104 x  64 0.177 BF
+  10 conv    128       3 x 3/ 1    104 x 104 x  64 ->  104 x 104 x 128 1.595 BF
+  11 Shortcut Layer: 8,  wt = 0, wn = 0, outputs: 104 x 104 x 128 0.001 BF
+  12 conv    256       3 x 3/ 2    104 x 104 x 128 ->   52 x  52 x 256 1.595 BF
+  13 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  14 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  15 Shortcut Layer: 12,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  16 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  17 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  18 Shortcut Layer: 15,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  19 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  20 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  21 Shortcut Layer: 18,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  22 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  23 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  24 Shortcut Layer: 21,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  25 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  26 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  27 Shortcut Layer: 24,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  28 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  29 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  30 Shortcut Layer: 27,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  31 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  32 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  33 Shortcut Layer: 30,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  34 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  35 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  36 Shortcut Layer: 33,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  37 conv    512       3 x 3/ 2     52 x  52 x 256 ->   26 x  26 x 512 1.595 BF
+  38 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  39 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  40 Shortcut Layer: 37,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  41 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  42 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  43 Shortcut Layer: 40,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  44 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  45 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  46 Shortcut Layer: 43,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  47 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  48 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  49 Shortcut Layer: 46,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  50 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  51 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  52 Shortcut Layer: 49,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  53 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  54 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  55 Shortcut Layer: 52,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  56 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  57 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  58 Shortcut Layer: 55,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  59 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  60 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  61 Shortcut Layer: 58,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  62 conv   1024       3 x 3/ 2     26 x  26 x 512 ->   13 x  13 x1024 1.595 BF
+  63 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  64 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  65 Shortcut Layer: 62,  wt = 0, wn = 0, outputs:  13 x  13 x1024 0.000 BF
+  66 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  67 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  68 Shortcut Layer: 65,  wt = 0, wn = 0, outputs:  13 x  13 x1024 0.000 BF
+  69 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  70 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  71 Shortcut Layer: 68,  wt = 0, wn = 0, outputs:  13 x  13 x1024 0.000 BF
+  72 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  73 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  74 Shortcut Layer: 71,  wt = 0, wn = 0, outputs:  13 x  13 x1024 0.000 BF
+  75 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  76 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  77 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  78 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  79 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  80 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  81 conv     36       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x  36 0.012 BF
+  82 yolo
+[yolo] params: iou loss: mse (2), iou_norm: 0.75, obj_norm: 1.00, cls_norm: 1.00, delta_norm: 1.00, scale_x_y: 1.00
+  83 route  79                                     ->   13 x  13 x 512 
+  84 conv    256       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 256 0.044 BF
+  85 upsample                 2x    13 x  13 x 256 ->   26 x  26 x 256
+  86 route  85 61                                  ->   26 x  26 x 768 
+  87 conv    256       1 x 1/ 1     26 x  26 x 768 ->   26 x  26 x 256 0.266 BF
+  88 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  89 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  90 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  91 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  92 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  93 conv     36       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x  36 0.025 BF
+  94 yolo
+[yolo] params: iou loss: mse (2), iou_norm: 0.75, obj_norm: 1.00, cls_norm: 1.00, delta_norm: 1.00, scale_x_y: 1.00
+  95 route  91                                     ->   26 x  26 x 256 
+  96 conv    128       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x 128 0.044 BF
+  97 upsample                 2x    26 x  26 x 128 ->   52 x  52 x 128
+  98 route  97 36                                  ->   52 x  52 x 384 
+  99 conv    128       1 x 1/ 1     52 x  52 x 384 ->   52 x  52 x 128 0.266 BF
+ 100 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+ 101 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+ 102 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+ 103 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+ 104 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+ 105 conv     36       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x  36 0.050 BF
+ 106 yolo
+[yolo] params: iou loss: mse (2), iou_norm: 0.75, obj_norm: 1.00, cls_norm: 1.00, delta_norm: 1.00, scale_x_y: 1.00
+Total BFLOPS 65.348 
+avg_outputs = 517917 
+yolov3-custom
+mini_batch = 4, batch = 64, time_steps = 1, train = 1 
+   layer   filters  size/strd(dil)      input                output
+   0 conv     32       3 x 3/ 1    416 x 416 x   3 ->  416 x 416 x  32 0.299 BF
+   1 conv     64       3 x 3/ 2    416 x 416 x  32 ->  208 x 208 x  64 1.595 BF
+   2 conv     32       1 x 1/ 1    208 x 208 x  64 ->  208 x 208 x  32 0.177 BF
+   3 conv     64       3 x 3/ 1    208 x 208 x  32 ->  208 x 208 x  64 1.595 BF
+   4 Shortcut Layer: 1,  wt = 0, wn = 0, outputs: 208 x 208 x  64 0.003 BF
+   5 conv    128       3 x 3/ 2    208 x 208 x  64 ->  104 x 104 x 128 1.595 BF
+   6 conv     64       1 x 1/ 1    104 x 104 x 128 ->  104 x 104 x  64 0.177 BF
+   7 conv    128       3 x 3/ 1    104 x 104 x  64 ->  104 x 104 x 128 1.595 BF
+   8 Shortcut Layer: 5,  wt = 0, wn = 0, outputs: 104 x 104 x 128 0.001 BF
+   9 conv     64       1 x 1/ 1    104 x 104 x 128 ->  104 x 104 x  64 0.177 BF
+  10 conv    128       3 x 3/ 1    104 x 104 x  64 ->  104 x 104 x 128 1.595 BF
+  11 Shortcut Layer: 8,  wt = 0, wn = 0, outputs: 104 x 104 x 128 0.001 BF
+  12 conv    256       3 x 3/ 2    104 x 104 x 128 ->   52 x  52 x 256 1.595 BF
+  13 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  14 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  15 Shortcut Layer: 12,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  16 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  17 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  18 Shortcut Layer: 15,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  19 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  20 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  21 Shortcut Layer: 18,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  22 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  23 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  24 Shortcut Layer: 21,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  25 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  26 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  27 Shortcut Layer: 24,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  28 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  29 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  30 Shortcut Layer: 27,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  31 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  32 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  33 Shortcut Layer: 30,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  34 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+  35 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+  36 Shortcut Layer: 33,  wt = 0, wn = 0, outputs:  52 x  52 x 256 0.001 BF
+  37 conv    512       3 x 3/ 2     52 x  52 x 256 ->   26 x  26 x 512 1.595 BF
+  38 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  39 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  40 Shortcut Layer: 37,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  41 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  42 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  43 Shortcut Layer: 40,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  44 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  45 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  46 Shortcut Layer: 43,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  47 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  48 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  49 Shortcut Layer: 46,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  50 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  51 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  52 Shortcut Layer: 49,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  53 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  54 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  55 Shortcut Layer: 52,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  56 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  57 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  58 Shortcut Layer: 55,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  59 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  60 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  61 Shortcut Layer: 58,  wt = 0, wn = 0, outputs:  26 x  26 x 512 0.000 BF
+  62 conv   1024       3 x 3/ 2     26 x  26 x 512 ->   13 x  13 x1024 1.595 BF
+  63 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  64 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  65 Shortcut Layer: 62,  wt = 0, wn = 0, outputs:  13 x  13 x1024 0.000 BF
+  66 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  67 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  68 Shortcut Layer: 65,  wt = 0, wn = 0, outputs:  13 x  13 x1024 0.000 BF
+  69 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  70 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  71 Shortcut Layer: 68,  wt = 0, wn = 0, outputs:  13 x  13 x1024 0.000 BF
+  72 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  73 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  74 Shortcut Layer: 71,  wt = 0, wn = 0, outputs:  13 x  13 x1024 0.000 BF
+  75 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  76 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  77 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  78 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  79 conv    512       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x 512 0.177 BF
+  80 conv   1024       3 x 3/ 1     13 x  13 x 512 ->   13 x  13 x1024 1.595 BF
+  81 conv     36       1 x 1/ 1     13 x  13 x1024 ->   13 x  13 x  36 0.012 BF
+  82 yolo
+[yolo] params: iou loss: mse (2), iou_norm: 0.75, obj_norm: 1.00, cls_norm: 1.00, delta_norm: 1.00, scale_x_y: 1.00
+  83 route  79                                     ->   13 x  13 x 512 
+  84 conv    256       1 x 1/ 1     13 x  13 x 512 ->   13 x  13 x 256 0.044 BF
+  85 upsample                 2x    13 x  13 x 256 ->   26 x  26 x 256
+  86 route  85 61                                  ->   26 x  26 x 768 
+  87 conv    256       1 x 1/ 1     26 x  26 x 768 ->   26 x  26 x 256 0.266 BF
+  88 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  89 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  90 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  91 conv    256       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x 256 0.177 BF
+  92 conv    512       3 x 3/ 1     26 x  26 x 256 ->   26 x  26 x 512 1.595 BF
+  93 conv     36       1 x 1/ 1     26 x  26 x 512 ->   26 x  26 x  36 0.025 BF
+  94 yolo
+[yolo] params: iou loss: mse (2), iou_norm: 0.75, obj_norm: 1.00, cls_norm: 1.00, delta_norm: 1.00, scale_x_y: 1.00
+  95 route  91                                     ->   26 x  26 x 256 
+  96 conv    128       1 x 1/ 1     26 x  26 x 256 ->   26 x  26 x 128 0.044 BF
+  97 upsample                 2x    26 x  26 x 128 ->   52 x  52 x 128
+  98 route  97 36                                  ->   52 x  52 x 384 
+  99 conv    128       1 x 1/ 1     52 x  52 x 384 ->   52 x  52 x 128 0.266 BF
+ 100 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+ 101 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+ 102 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+ 103 conv    128       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x 128 0.177 BF
+ 104 conv    256       3 x 3/ 1     52 x  52 x 128 ->   52 x  52 x 256 1.595 BF
+ 105 conv     36       1 x 1/ 1     52 x  52 x 256 ->   52 x  52 x  36 0.050 BF
+ 106 yolo
+[yolo] params: iou loss: mse (2), iou_norm: 0.75, obj_norm: 1.00, cls_norm: 1.00, delta_norm: 1.00, scale_x_y: 1.00
+Total BFLOPS 65.348 
+avg_outputs = 517917 
+Loading weights from custom_weight/darknet53.conv.74...
+ seen 64, trained: 0 K-images (0 Kilo-batches_64) 
+Done! Loaded 75 layers from weights-file 
+saveweights: Using default '10000'
+savelast: Using default '100'
+Weights are saved after: 10000 iterations. Last weights (*_last.weight) are stored every 100 iterations. 
+Learning Rate: 0.0001, Momentum: 0.9, Decay: 0.0005
+ Detection layer: 82 - type = 28 
+ Detection layer: 94 - type = 28 
+ Detection layer: 106 - type = 28 
+ If error occurs - run training with flag: -dont_show 
+ Create 6 permanent cpu-threads 
+Resizing, random_coef = 1.40 
+
+ 608 x 608 
+Loaded: 0.000041 seconds
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: 0.386764), count: 12, class_loss = 328.470947, iou_loss = 8.090729, total_loss = 336.561676 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: 0.440950), count: 12, class_loss = 1326.770508, iou_loss = 7.420044, total_loss = 1334.190552 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: 0.356971), count: 7, class_loss = 4072.328613, iou_loss = 6.015137, total_loss = 4078.343750 
+ total_bbox = 27, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: 0.522400), count: 6, class_loss = 326.328949, iou_loss = 1.948120, total_loss = 328.277069 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: 0.403969), count: 17, class_loss = 1328.224121, iou_loss = 12.001587, total_loss = 1340.225708 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: 0.319129), count: 12, class_loss = 4083.721680, iou_loss = 12.316406, total_loss = 4096.038086 
+ total_bbox = 62, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: 0.480723), count: 8, class_loss = 325.647980, iou_loss = 2.955048, total_loss = 328.603027 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: 0.393819), count: 14, class_loss = 1326.941772, iou_loss = 7.577637, total_loss = 1334.519409 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: 0.356665), count: 12, class_loss = 4076.925049, iou_loss = 10.909180, total_loss = 4087.834229 
+ total_bbox = 94, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: 0.383427), count: 8, class_loss = 326.670624, iou_loss = 4.183624, total_loss = 330.854248 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: 0.454101), count: 16, class_loss = 1325.494751, iou_loss = 7.511963, total_loss = 1333.006714 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: 0.253921), count: 8, class_loss = 4069.433838, iou_loss = 9.489258, total_loss = 4078.923096 
+ total_bbox = 126, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: 0.370046), count: 5, class_loss = 326.118591, iou_loss = 2.497772, total_loss = 328.616364 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: 0.364801), count: 15, class_loss = 1325.298096, iou_loss = 11.699585, total_loss = 1336.997681 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: 0.332901), count: 5, class_loss = 4117.522461, iou_loss = 6.346191, total_loss = 4123.868652 
+ total_bbox = 150, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: 0.421876), count: 9, class_loss = 326.774811, iou_loss = 4.994751, total_loss = 331.769562 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: 0.348020), count: 10, class_loss = 1324.214844, iou_loss = 7.149170, total_loss = 1331.364014 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: 0.255182), count: 8, class_loss = 4069.182617, iou_loss = 10.354492, total_loss = 4079.537109 
+ total_bbox = 174, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: 0.448260), count: 10, class_loss = 327.411194, iou_loss = 6.729736, total_loss = 334.140930 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: 0.428568), count: 16, class_loss = 1331.884399, iou_loss = 11.954834, total_loss = 1343.839233 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: 0.275348), count: 7, class_loss = 4068.949219, iou_loss = 7.645020, total_loss = 4076.594238 
+ total_bbox = 204, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: 0.428622), count: 7, class_loss = 326.466095, iou_loss = 3.441284, total_loss = 329.907379 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: 0.421643), count: 13, class_loss = 1327.848145, iou_loss = 6.047607, total_loss = 1333.895752 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: 0.614069), count: 1, class_loss = 4075.219727, iou_loss = 0.185059, total_loss = 4075.404785 
+ total_bbox = 224, rewritten_bbox = 0.000000 % 
+1/14000: loss=1917.5 hours left=-1.0
+2/14000: loss=1915.5 hours left=8382.5
+3/14000: loss=1916.5 hours left=8372.9
+4/14000: loss=1916.4 hours left=8364.5
+5/14000: loss=1916.5 hours left=8360.3
+6/14000: loss=1918.8 hours left=8354.6
+7/14000: loss=1916.9 hours left=8351.1
+8/14000: loss=1917.6 hours left=8348.4
+9/14000: loss=1916.9 hours left=8341.4
+10/14000: loss=1917.3 hours left=8329.8
+ 10: 1917.307007, 1917.217407 avg loss, 0.000000 rate, 1790.988486 seconds, 640 images, 8329.758998 hours left
+Resizing, random_coef = 1.40 
+
+11/14000: loss=1199.4 hours left=8316.1
+12/14000: loss=1199.8 hours left=8271.2
+13/14000: loss=1202.3 hours left=8225.4
+14/14000: loss=1200.0 hours left=8180.6
+15/14000: loss=1203.2 hours left=8136.3
+16/14000: loss=1199.0 hours left=8096.5
+17/14000: loss=1198.2 hours left=8055.5
+18/14000: loss=1200.5 hours left=8013.0
+19/14000: loss=1199.5 hours left=7971.8
+20/14000: loss=1201.0 hours left=7929.2
+ 20: 1200.956299, 1450.244141 avg loss, 0.000000 rate, 967.771976 seconds, 1280 images, 7929.238237 hours left
+Resizing, random_coef = 1.40 
+
+21/14000: loss=1048.3 hours left=7887.5
+22/14000: loss=1046.2 hours left=7839.9
+23/14000: loss=1045.4 hours left=7792.7
+24/14000: loss=1044.0 hours left=7745.1
+25/14000: loss=1046.8 hours left=7698.9
+26/14000: loss=1044.8 hours left=7652.5
+27/14000: loss=1046.2 hours left=7606.2
+28/14000: loss=1047.2 hours left=7560.5
+29/14000: loss=1046.0 hours left=7516.7
+30/14000: loss=1044.7 hours left=7472.7
+ 30: 1044.708252, 1186.862793 avg loss, 0.000000 rate, 803.383156 seconds, 1920 images, 7472.663311 hours left
+Resizing, random_coef = 1.40 
+
+31/14000: loss=538.9 hours left=7429.1
+32/14000: loss=539.0 hours left=7370.1
+33/14000: loss=541.5 hours left=7311.6
+34/14000: loss=539.7 hours left=7253.5
+35/14000: loss=537.7 hours left=7196.1
+36/14000: loss=539.0 hours left=7139.3
+37/14000: loss=539.9 hours left=7083.0
+38/14000: loss=538.9 hours left=7027.1
+39/14000: loss=540.1 hours left=6971.5
+40/14000: loss=539.7 hours left=6916.6
+ 40: 539.722473, 765.206482 avg loss, 0.000000 rate, 382.076353 seconds, 2560 images, 6916.566398 hours left
+Resizing, random_coef = 1.40 
+
+41/14000: loss=648.6 hours left=6862.2
+42/14000: loss=nan hours left=6812.3
+43/14000: loss=nan hours left=6762.1
+44/14000: loss=nan hours left=6712.5
+45/14000: loss=nan hours left=6664.6
+46/14000: loss=nan hours left=6616.9
+47/14000: loss=nan hours left=6569.6
+48/14000: loss=nan hours left=6522.3
+49/14000: loss=nan hours left=6475.4
+50/14000: loss=nan hours left=6428.7
+ 50: nan, nan avg loss, 0.000000 rate, 463.645923 seconds, 3200 images, 6428.682525 hours left
+Resizing, random_coef = 1.40 
+
+51/14000: loss=nan hours left=6382.4
+52/14000: loss=nan hours left=6375.5
+ 52: nan, nan avg loss, 0.000000 rate, 1493.234888 seconds, 3328 images, 6375.526514 hours left
+Loaded: 0.000044 seconds
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 12, class_loss = 3.000000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 17, class_loss = 4.250000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 13, class_loss = 3.250000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23188, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 9, class_loss = 2.250000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 3, class_loss = 0.750000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 3, class_loss = 0.750000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23201, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 8, class_loss = 2.000000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 15, class_loss = 3.750000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 10, class_loss = 2.500000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23234, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 9, class_loss = 2.250000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 16, class_loss = 4.000000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 7, class_loss = 1.750000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23266, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 9, class_loss = 2.250000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 19, class_loss = 4.750000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 7, class_loss = 1.750000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23301, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 6, class_loss = 1.500000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 10, class_loss = 2.500000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 8, class_loss = 2.000000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23325, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 10, class_loss = 2.500000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 19, class_loss = 4.750000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 5, class_loss = 1.250000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23359, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 8, class_loss = 2.000000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 7, class_loss = 1.750000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 18, class_loss = 4.500000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23392, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 7, class_loss = 1.750000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 8, class_loss = 2.000000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 4, class_loss = 1.000000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23411, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 10, class_loss = 2.500000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 13, class_loss = 3.250000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 1, class_loss = 0.250000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23435, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 5, class_loss = 1.250000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 17, class_loss = 4.250000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 23, class_loss = 5.750000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23480, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 7, class_loss = 1.750000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 12, class_loss = 3.000000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 7, class_loss = 1.750000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23506, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 8, class_loss = 2.000000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 9, class_loss = 2.250000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 3, class_loss = 0.750000, iou_loss = nan, total_loss = nan 
+ total_bbox = 23526, rewritten_bbox = 0.000000 % 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 82 Avg (IOU: nan), count: 7, class_loss = 1.750000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 94 Avg (IOU: nan), count: 8, class_loss = 2.000000, iou_loss = nan, total_loss = nan 
+v3 (mse loss, Normalizer: (iou: 0.75, obj: 1.00, cls: 1.00) Region 106 Avg (IOU: nan), count: 4, class_loss = 1.000000, iou_loss = nan, total_loss = nan 
+^C

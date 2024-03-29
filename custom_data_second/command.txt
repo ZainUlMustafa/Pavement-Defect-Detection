@@ -1,0 +1,5 @@
+darknet/darknet detector train custom_data_second/labelled_data.data custom_data_second/yolov3-custom-second.cfg custom_weight/darknet53.conv.74 -dont_show
+
+darknet/darknet detector train custom_data_second/labelled_data.data custom_data_second/yolov3-custom-second.cfg custom_weight/yolov3.weights -clear -dont_show
+
+darknet/darknet detector train custom_data/labelled_data.data custom_data/yolov3-custom.cfg custom_weight/yolov3.weights -clear -dont_show

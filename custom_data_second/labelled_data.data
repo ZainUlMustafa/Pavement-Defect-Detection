@@ -1,0 +1,5 @@
+classes = 6
+train = custom_data_second/train.txt
+valid = custom_data_second/test.txt
+names = custom_data_second/classes.names
+backup = backup
