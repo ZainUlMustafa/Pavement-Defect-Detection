@@ -280,17 +280,17 @@ def main():
     # video_path = "custom_data_second/test_videos/GX010012.MP4"
     # process_video(video_path, loaded_yolo)
 
-    process_image("crack.jpeg", loaded_yolo)
+    # process_image("crack.jpeg", loaded_yolo)
     process_image("custom_data_second/valid/asphalt-patch2-e1582666915314_jpg.rf.63f5bd967fe794f6a03ba3487ae3c5d8.jpg", loaded_yolo)
-    process_image("custom_data/WI48-0141--97-_jpg.rf.17173b250477a5b0f0b00037d237fa9d.jpg", loaded_yolo)
-    process_image('custom_data_second/train/us14-177-_jpg.rf.28a3a4c322feee2aec1908d69a3f0f23.jpg', loaded_yolo)
-    process_image("custom_data_second/valid/2_jpg.rf.bc00de1bad2263e0aac28e62d3037c85.jpg", loaded_yolo)
-    process_image("custom_data/US169-0-440--354-_jpg.rf.470cfb2baa2e3d66f6cac8ec5c5271a7.jpg", loaded_yolo) # to show
-    process_image("custom_data/WI48-0141--99-_jpg.rf.52fabe4a75de10be3d35b9fb9d40c4a8.jpg", loaded_yolo)
-    process_image("custom_data/WI48-0141--142-_jpg.rf.16e6801b31b0212df8707ad12ab4709c.jpg", loaded_yolo)
-    process_image("custom_data/US63_2-861-904--61-_jpg.rf.fcf621f86d307afba46dfb0e731d796d.jpg", loaded_yolo)
-    process_image("custom_data_second/multi-crack.png", loaded_yolo)
-    process_image("custom_data_second/transverse.jpeg", loaded_yolo)
+    # process_image("custom_data/WI48-0141--97-_jpg.rf.17173b250477a5b0f0b00037d237fa9d.jpg", loaded_yolo)
+    # process_image('custom_data_second/train/us14-177-_jpg.rf.28a3a4c322feee2aec1908d69a3f0f23.jpg', loaded_yolo)
+    # process_image("custom_data_second/valid/2_jpg.rf.bc00de1bad2263e0aac28e62d3037c85.jpg", loaded_yolo)
+    # process_image("custom_data/US169-0-440--354-_jpg.rf.470cfb2baa2e3d66f6cac8ec5c5271a7.jpg", loaded_yolo) # to show
+    # process_image("custom_data/WI48-0141--99-_jpg.rf.52fabe4a75de10be3d35b9fb9d40c4a8.jpg", loaded_yolo)
+    # process_image("custom_data/WI48-0141--142-_jpg.rf.16e6801b31b0212df8707ad12ab4709c.jpg", loaded_yolo)
+    # process_image("custom_data/US63_2-861-904--61-_jpg.rf.fcf621f86d307afba46dfb0e731d796d.jpg", loaded_yolo)
+    # process_image("custom_data_second/multi-crack.png", loaded_yolo)
+    # process_image("custom_data_second/transverse.jpeg", loaded_yolo)
 
 if __name__ == "__main__":
     main()
