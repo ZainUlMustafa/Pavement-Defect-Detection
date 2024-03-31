@@ -82,7 +82,7 @@ def calculate_iou(box1, box2):
     iou = intersection_area / float(box1_area + box2_area - intersection_area)
     return iou
 
-def draw_labels_iou(boxes, confs, colors, class_ids, classes, img, iou_threshold=0.2):
+def draw_labels_iou(boxes, confs, colors, class_ids, classes, img, iou_threshold=0.1):
     font = cv2.FONT_HERSHEY_PLAIN
     for i in range(len(boxes)):
         if boxes[i] is None:
@@ -115,7 +115,7 @@ def draw_labels_iou(boxes, confs, colors, class_ids, classes, img, iou_threshold
 
 
 def draw_labels(boxes, confs, colors, class_ids, classes, img):
-    indexes = cv2.dnn.NMSBoxes(boxes, confs, 0.3, 0.1)
+    indexes = cv2.dnn.NMSBoxes(boxes, confs, 0.2, 0.1)
     font = cv2.FONT_HERSHEY_PLAIN
     for i in range(len(boxes)):
         if i in indexes:
@@ -260,10 +260,11 @@ def webcam_detect(loaded_yolo):
 def main():
     weights_files = [
         "custom_data_second/colab_weights/yolov3-custom-second_last (8).weights",
-        "custom_data_second/colab_weights/yolov3-custom-second_last (9).weights",
-        # "custom_data_second/colab_weights/yolov3-custom-second_last (10).weights",
+        # "custom_data_second/colab_weights/yolov3-custom-second_last (9).weights",
+        "custom_data_second/colab_weights/yolov3-custom-second_last (10).weights",
         # "custom_data_second/colab_weights/yolov3-custom-second_last (11).weights",
-        "custom_data_second/colab_weights/yolov3-custom-second_last (12).weights"
+        # "custom_data_second/colab_weights/yolov3-custom-second_last (12).weights",
+        "custom_data_second/colab_weights/yolov3-custom-second_last (13).weights"
     ]
     cfg_file = "custom_data_second/yolov3-custom-second.cfg"
     names_files = [
@@ -273,7 +274,7 @@ def main():
 
     loaded_yolo = load_yolo(weights_files, cfg_file, names_files)
 
-    # webcam_detect(loaded_yolo)
+    webcam_detect(loaded_yolo)
 
     video_path = "custom_data_second/test_videos/Pavement.MP4"
     # video_path = "custom_data_second/test_videos/GX010085_North.mp4"
@@ -281,7 +282,7 @@ def main():
     # process_video(video_path, loaded_yolo)
 
     # process_image("crack.jpeg", loaded_yolo)
-    process_image("custom_data_second/valid/asphalt-patch2-e1582666915314_jpg.rf.63f5bd967fe794f6a03ba3487ae3c5d8.jpg", loaded_yolo)
+    # process_image("custom_data_second/valid/asphalt-patch2-e1582666915314_jpg.rf.63f5bd967fe794f6a03ba3487ae3c5d8.jpg", loaded_yolo)
     # process_image("custom_data/WI48-0141--97-_jpg.rf.17173b250477a5b0f0b00037d237fa9d.jpg", loaded_yolo)
     # process_image('custom_data_second/train/us14-177-_jpg.rf.28a3a4c322feee2aec1908d69a3f0f23.jpg', loaded_yolo)
     # process_image("custom_data_second/valid/2_jpg.rf.bc00de1bad2263e0aac28e62d3037c85.jpg", loaded_yolo)
