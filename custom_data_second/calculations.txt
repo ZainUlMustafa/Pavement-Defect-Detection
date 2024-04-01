@@ -1,3 +1,6 @@
+classes = 6
 max_batches = (classes*2000) = 6*2000 = 12000
 steps = 11500,12500
 filters = (num/3)*(classes+5) = (9/3)*(6+5) = 33
+anchors = 24, 44,  64, 26,  35, 81, 127, 34,  81, 80,  46,147, 235, 63, 112,170, 322,336
+image_size = 416x416
