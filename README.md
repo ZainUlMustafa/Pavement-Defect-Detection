@@ -11,4 +11,3 @@ Intentionally created a difficult lighting situation in order to test the model
 ![Result 3](custom_data_second/results/2.png)
 ![Result 4](custom_data_second/results/3.png)
 ![Result 5](custom_data_second/results/4.png)
-![Result 6](custom_data_second/results/5.png)
