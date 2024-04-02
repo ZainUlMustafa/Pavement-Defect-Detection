@@ -6,9 +6,9 @@
 ### Live camera processing
 Intentionally created a difficult lighting situation in order to test the model
 
-![Result 1](../results/0.png)
-![Result 2](../results/1.png)
-![Result 3](../results/2.png)
-![Result 4](../results/3.png)
-![Result 5](../results/4.png)
-![Result 6](../results/5.png)
+![Result 1](custom_data_second/results/0.png)
+![Result 2](custom_data_second/results/1.png)
+![Result 3](custom_data_second/results/2.png)
+![Result 4](custom_data_second/results/3.png)
+![Result 5](custom_data_second/results/4.png)
+![Result 6](custom_data_second/results/5.png)
